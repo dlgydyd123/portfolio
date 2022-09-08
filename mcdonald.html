@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/img/mc.ico">
+    <title>mcdonald</title>
+    <style>
+        @import url(http://fonts.googleapis.com/css?family=Play);
+        @import url(http://fonts.googleapis.com/css?family=Monoton);
+        
+        *{margin: 0;padding: 0;}
+        ul,ol{list-style: none;}
+        a{text-decoration: none; color: #dddddd;}
+
+        body{position: fixed; width: 100%; height: 100%;
+            top: 0; right: 0; bottom: 0; left: 0; }
+
+
+        .vid {
+            background: #000;
+            position: fixed;
+            top: 0; right: 0; bottom: 0; left: 0;
+        }
+        .vid iframe{position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;}
+
+            @media (min-aspect-ratio: 16/9) {
+            .vid iframe { height: 300%; top: -100%; }
+            }
+
+            @media (max-aspect-ratio: 16/9) {
+            .vid iframe { width: 300%; left: -100%; }
+            }
+
+        h1{position: fixed; top:40px; left:40px; z-index:10;}
+        h1 img{width:80px; height:auto;}
+        header{width:700px; height:100%; position:fixed; 
+                top:0px; left:-420px; 
+                background: linear-gradient(-45deg,#D94135,#EC1A1A); 
+                transform:skewX(-40deg);
+            }
+        
+        /* 1depth*/
+        #gnb { 	width:240px; position:absolute; top:150px; right:0px;}
+        #gnb>li {position:relative; }
+        #gnb>li>a { display:block; width:240px; height:50px; font:bold 18px/3 play; color:#222; 
+            box-sizing:border-box; padding-right:40px; text-align:right;}
+        #gnb>li.active>a { background:#111111; color:#ffffff;}
+        #gnb>li:hover>a { background:#dddddd; color:#000000;}
+        #gnb em { display:inline-block; transform:skewX(40deg)!important; }
+        #gnb em i { margin-right:10px;}
+
+        /*2depth*/
+        #gnb ul{opacity: 0; position:absolute; left:0; top:0; transition: 0.5s;}
+        #gnb>li:hover ul{opacity: 1; left: 240px;}
+        #gnb ul a { display:block; width:300px; height:40px; 
+            background:#222; border-bottom:1px solid #FEC327; 
+            font:bold 16px/2.5 arial; color:#fff; box-sizing:border-box; 
+            text-align: center; margin-bottom:3px; transition:all 0.5s; }
+        #gnb ul a:hover { background:#FEC327; color:#333; }
+        
+        /*SNS*/
+        #sns{position: fixed; right:20px; top:20px; }
+        #sns li{float: left; padding: 10px; }
+        #sns .fa{color: #D94135; font-size: 25px; opacity: 0.5; transition: 1s;}
+
+        #sns li:hover .fa{
+            opacity: 1;
+            transform: scale(2);
+        }
+
+
+        /*side*/
+        #side { width:800px; height:100%; position:fixed; bottom:0px; right:-800px; background:#111; opacity:0.5; transform:skewX(-40deg); transition:all 0.5s;}
+        #side:hover { right:-500px; opacity:0.8;}
+        #side .con { width:400px; height:100%; position:absolute; left:150px; bottom:0px; background:#000; 	box-sizing:border-box; padding:10px; transition:all  1s;}
+        #side:hover .con { left:50px;}
+
+        #side .con p { width: 300px; height:100px; position:absolute; left:70px}
+        #side .con p em { display:inline-block; font:bold 16px/1.7 arial; color:#D94135; transform:skewX(40deg);  }
+        #side .con p img { width:250px; height:80px; opacity:0.3; transition:all 0.5s; }
+        #side .con p img:hover { opacity:1;}
+        #side .con p:nth-child(1) { bottom:270px; transform: translateX(200px); transition:all  0.4s;}
+        #side .con p:nth-child(2) { bottom:160px; transform: translateX(200px); transition:all  0.8s;}
+        #side .con p:nth-child(3) { bottom:50px; transform: translateX(200px); transition:all  1.2s;}
+        #side:hover .con p { transform:translateX(0px);}
+
+
+        #side .btnContents { width:150px; height:50px; position:absolute;  bottom:40px; left:100px; color:#D94135;	transform:skewX(40deg); }
+        #side:hover .btnContents { left:700px;}	
+        .btnContents i { font-size:60px; position:absolute; bottom:0px; right:0px; opacity:1;}
+        .btnContents i:nth-child(1) { animation:ani linear 1.5s 0s infinite;}
+        .btnContents i:nth-child(2) { animation:ani linear 1.5s 0.5s infinite;}
+        .btnContents i:nth-child(3) { animation:ani linear 1.5s 1.0s infinite;}
+
+@keyframes ani {
+	0% { right:0px; transform:sclae(1); opacity:1;}
+	100% { right:100px; transform:scale(1.5); opacity:0;}
+}
+
+    </style>
+</head>
+<!--배경동영상 muted가 있어야 autoplay가 작동함-->
+<body>
+    <figure class="vid">
+        <div>
+            <iframe src="https://www.youtube.com/embed/nBylySCKS5E?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&modestbranding=1&playlist=nBylySCKS5E,2alwcW6Bvso,0NwcaRZTP2c,h6b5d4VEgGQ,ROTIhrgGmzI,sXA7b16FCbQ&mute=1" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </figure>
+
+    <h1><img src="img/mc.png" /></h1>
+
+    <header>
+        <ul id="gnb">
+            <li class="active">
+                <a href="#"><em>Language</em></a>
+                <ul>
+					<li><a href="#"><em><i class="fa fa-refresh fa-spin"></i>English</em></a></li>
+					<li><a href="#"><em>Korean</em></a></li>
+				</ul>
+            </li>
+            <li>
+				<a href="#"><em>Mene</em></a>
+                <ul>
+					<li><a href="#"><em>Hamburger</em></a></li>
+					<li><a href="#"><em>McLunch</em></a></li>
+					<li><a href="#"><em>McMornig</em></a></li>
+					<li><a href="#"><em>HappySnack</em></a></li>
+                    <li><a href="#"><em>Side&Dessert</em></a></li>
+                    <li><a href="#"><em>McCafe&Drinks</em></a></li>
+                    <li><a href="#"><em>HappyMeal</em></a></li>
+				</ul>
+            </li>
+            <li>
+				<a href="#"><em>Store</em></a>
+                <ul>
+					<li><a href="#"><em>Find a store</em></a></li>
+					<li><a href="#"><em>McDelivery</em></a></li>
+					<li><a href="#"><em>McDrive</em></a></li>
+					<li><a href="#"><em>Rental Inquiry</em></a></li>
+				</ul>			
+			</li>
+			<li>
+				<a href="#"><em>What's New</em></a>
+                <ul>
+					<li><a href="#"><em>Promotion</em></a></li>
+					<li><a href="#"><em>New News</em></a></li>
+					<li><a href="#"><em>Happy Meal of the Month</em></a></li>
+				</ul>				
+			</li>
+			<li>				
+				<a href="#"><em>Story</em></a>
+                <ul>
+					<li><a href="#"><em>Brand Introduction</em></a></li>
+					<li><a href="#"><em>Social Responsibility and Support</em></a></li>
+					<li><a href="#"><em>McDonald's Quality Story</em></a></li>
+					<li><a href="#"><em>McDonald's People</em></a></li>
+				</ul>			
+			</li>	
+        </ul>
+    </header>
+    	
+	<ul id="sns">
+		<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+		<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+		<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+	</ul>
+
+    <section id="side">
+		<div class="con">
+			<p>
+				<em>Various Toys</em>
+				<a href="#"><img src="img/toy.jpg" /></a>				
+			</p>
+			<p>
+				<em>Event & Community</em>
+				<a href="#"><img src="img/event.jpg" /></a>				
+			</p>
+			<p>
+				<em>Nearby McDonald's Locations</em>
+				<a href="#"><img src="img/near.png" /></a>				
+			</p>		
+		</div>	
+
+        <div class="btnContents">
+			<i class="fa fa-angle-double-left"></i>
+			<i class="fa fa-angle-double-left"></i>  
+			<i class="fa fa-angle-double-left"></i>
+		</div>
+		
+	</section>
+
+</body>
+</html>
