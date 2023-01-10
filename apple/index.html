@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- slick -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+				
+    <style>
+        #gnb ,#gnb2{
+            width: 100%;
+            height: 50px;
+            background-color: black ;
+        }
+
+        #gnb ul,#gnb2 ul{
+            background-color: black !important;
+            height: 50px;
+            margin: auto ;
+            width: 70% !important;
+        }
+
+        #gnb ul li,#gnb2 ul li{
+            list-style-type:none;
+            float: left;
+            font-size: 13px;
+        }
+
+        #gnb{display: block;}
+        #gnb2{display: none;}
+
+        #gnb ul li a,#gnb2 ul li a{
+            display: block;
+            padding: 20px;
+            color: #CCCCCC;
+        }
+
+        #gnb2-list{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 10;
+            display: none;
+        }
+
+        #content1, #content2,#content3, #content4 .container,#content5 .container,#content6 .container{
+            height:730px;      
+            background-repeat: no-repeat;
+            background-position: bottom center;
+            text-align: center;
+            position: relative;
+        }
+        #content1{            
+            background-color: black;
+            background-image: url("img/pic01.png");
+        }
+        .caption{
+            position: absolute;
+            top: 50px;
+            left: 25%;
+            width: 50%;
+        }
+
+        .ex{
+            margin-top: 10px;
+            font-size: 12px;
+        }
+
+        #content1 h2, #content1 h3, #content4 h2,#content4 h3{
+            color:white;
+        }
+        .caption h2{
+            font-size: 45px;
+        }
+        #content2,#content3{
+            background-color:#FAFAFC; 
+        }
+        #content2 .caption h2, #content2 .caption h3,#content3 .caption h2, #content3 .caption h3{
+            color: black;
+        }
+        #content2{
+            background-image: url("img/pic03.png");
+        }
+        #content3{
+            background-image: url("img/pic09.png");
+        }
+
+        .box-height{
+            height: 500px;
+        }
+
+        #content4 .col-md-6:nth-child(1) .container{
+            background-color: black;
+            background-image: url("img/pic05.png");
+            margin-top: 10px;
+            margin-bottom: 10px;
+            
+        }
+
+        #content4 .col-md-6:nth-child(2) .container{
+            background-color: black;
+            background-image: url("img/pic07.png");
+            margin-top: 10px;
+            margin-bottom: 10px;
+            
+        }
+
+        #content5 .col-md-6:nth-child(1) .container{
+            background-color: #FBFBFD;
+            background-image: url("img/pic11.png");
+            margin-top: 10px;
+            margin-bottom: 10px;
+            
+        }
+
+        #content5 .col-md-6:nth-child(2) .container{
+            background-color: #F5F5F7;
+            background-image: url("img/pic13.png");
+            margin-top: 10px;
+            margin-bottom: 10px;
+            
+        }
+
+        #content6 .col-md-6:nth-child(1) .container{
+            background-color: #F5F5F7;
+            background-image: url("img/pic15.png");
+            margin-top: 10px;
+            margin-bottom: 10px;
+            
+        }
+
+        #content6 .col-md-6:nth-child(2) .container{
+            background-color: #FBFBFD;
+            background-image: url("img/pic17.png");
+            margin-top: 10px;
+            margin-bottom: 10px;
+            
+        }
+
+        .footer-column{
+            width:20%;
+            float: left;
+        }
+
+        .footer-column ul{
+            list-style-type: none;
+        }
+
+        .footer-column li{
+            font-size: 12px;
+        }
+
+        #footer1{
+            display: block;
+            height: 600px;
+        }
+
+        #bottom a{
+            margin-left: 13px;
+            padding-right: 10px;
+            border-right: solid 1px;
+            font-size: 13px;
+        }
+
+        #footer2{display: none;}
+        #footer2 li{
+            list-style-type:none;
+        }
+
+        .slick-slice{
+            height: 700px;
+            width: 100%;
+        }
+
+        .slick-slide img{
+            width: 100%;
+        }
+
+        .slick-prev{
+            width: 100px;
+            height: 100%;
+            left:0px;
+            z-index: 10;
+        }
+
+        
+        .slick-next{
+            width: 100px;
+            height: 100%;
+            right:0px;
+        }
+
+        #footer2 button{
+            display: block;
+            border: none;
+        }
+
+        @media screen and (max-width:576px) {
+
+            #gnb{display: none;}
+            #gnb2{display: block;}
+
+            #content1{
+                height: 540px;
+                background-image: url("img/pic02.png");
+            }
+            .caption h2{
+                font-size: 35px;
+            }
+            #content2{
+                height: 540px;
+                background-image: url("img/pic04.png");
+            }
+            #content3{
+                height: 540px;
+                background-image: url("img/pic10.png");
+            }
+
+            #content4 .col-md-6:nth-child(1) .container{
+                background-image: url("img/pic06.png");
+            }
+
+            #content4 .col-md-6:nth-child(2) .container{
+                background-image: url("img/pic08.png");
+            }
+
+            #content5 .col-md-6:nth-child(1) .container{
+                background-image: url("img/pic12.png");
+            }
+
+            #content5 .col-md-6:nth-child(2) .container{
+                background-image: url("img/pic14.png");
+            }
+            
+            #content6 .col-md-6:nth-child(1) .container{
+                background-image: url("img/pic16.png");
+            }
+
+            #content6 .col-md-6:nth-child(2) .container{
+                background-image: url("img/pic18.png");
+            }
+
+
+            #footer1{display: none;}
+            #footer2{display: block;}
+
+        }
+    </style>
+    <script>
+          $(document).ready(function () {
+            $("#gnb2 .fa-bars").click(function(){
+                $("#gnb2-list").slideToggle();
+            });
+
+
+            $('.slider').slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                pauseOnFocus: false,
+                pauseOnHover: false,
+                dots: true,
+                arrows:true,
+                centerPadding: "100px",
+                centerMode: true,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+                    },
+                    {
+                        breakpoint: 576,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+                    }
+                ]
+            });
+
+            /*mobile footer**************************************************************/
+            $("#btn1").on("click",function(){
+                $("#ul1").slideToggle();
+            });
+            
+            $("#btn2").on("click",function(){
+                $("#ul2").slideToggle();
+            });
+
+            $("#btn3").on("click",function(){
+                $("#ul3").slideToggle();
+            });
+            
+            $("#btn4").on("click",function(){
+                $("#ul4").slideToggle();
+            });
+
+            $("#btn5").on("click",function(){
+                $("#ul5").slideToggle();
+            });
+            
+            $("#btn6").on("click",function(){
+                $("#ul6").slideToggle();
+            });
+
+            $("#btn7").on("click",function(){
+                $("#ul7").slideToggle();
+            });
+            
+            $("#btn8").on("click",function(){
+                $("#ul8").slideToggle();
+            });
+
+            $("#btn9").on("click",function(){
+                $("#ul9").slideToggle();
+            });
+            
+            $("#btn10").on("click",function(){
+                $("#ul10").slideToggle();
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Global Navigation Bar ------------------------------------------------------------------>
+    <div id="gnb" class="container-fluid">
+        <ul>
+            <li><a href="#"><i class="fa fa-apple"></i></a></li>
+            <li><a href="#">Store</a></li>
+            <li><a href="#">Mac</a></li>
+            <li><a href="#">iPad</a></li>
+            <li><a href="#">iPhone</a></li>
+            <li><a href="#">Watch</a></li>
+            <li><a href="#">AirPods</a></li>
+            <li><a href="#">TV &amp; Home</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#"><i class="fa fa-search"></i></a></li>
+            <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
+        </ul>
+    </div>
+    <!-- Global Navigation Bar -->
+    <!-- GNB mobile----------------------------------------------------------------------------->
+    <div id="gnb2" class="container-fluid">
+        <ul>
+            <li><a href="#"><i class="fa fa-bars"></i></a></li>
+            <li><a href="#"><i class="fa fa-apple"></i></a></li>
+            <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
+        </ul>
+    </div>
+    <div id="gnb2-list" >
+
+    </div>
+    <!-- GNB mobile-->
+    <!-- iphone14 pro -------------------------------------------------------------------------->
+    <div id="content1" class="container-fluid">
+        <div class="container">
+            <div class="caption">
+                <h2>iPhone14 Pro</h2>
+                <h3>Pro. Beyond.</h3>
+                <div>
+                    <a href="#">Learn more &gt;</a>
+                    <a href="#">Buy &gt;</a>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <!-- iphone14 pro -->
+    <!-- iphone14 -------------------------------------------------------------------------->
+    <div id="content2" class="container-fluid">
+        <div class="container">
+            <div class="caption">
+                <h2>iPhone14</h2>
+                <h3>Big and bigger.</h3>
+                <p>iPhone 14 Plus available starting 10.7</p>
+                <div>
+                    <a href="#">Learn more &gt;</a>
+                    <a href="#">Shop &gt;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- iphone14 -->
+
+     <!-- applewatch -------------------------------------------------------------------------->
+     <div id="content3" class="container-fluid">
+        <div class="container">
+            <div class="caption">
+                <h2><i class="fa fa-apple"></i> WATCH</h2>
+                <h6 style="color: orange; font-size:20px">ULTRA</h6>
+                <h3>Adventure awaits</h3>
+                <div>
+                    <a href="#">Learn more &gt;</a>
+                    <a href="#">Buy &gt;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--applewatch -->
+
+    <!--double box1-------------------------------------------------------------------------->
+    <div id="content4" class="container-fluid">
+        <div class="row">
+            <!--AirPods Pro----------------------------------------------------------------->
+            <div class="col-md-6">
+                <div class="container box-height">
+                    <div class="caption">
+                        <h2>AirPods Pro</h2>
+                        <h3>Rebuilt from the sound up.</h3>
+                        <div>
+                            <a href="#">Learn more &gt;</a>
+                            <a href="#">Buy &gt;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--AirPods Pro-->
+
+            <!--Apple Watch---------------------------------------------------------------->
+            <div class="col-md-6">
+                <div class="container box-height">
+                    <div class="caption">
+                        <h2><i class="fa fa-apple"></i> WATCH</h2>
+                        <h6 style="color: red; font-size:20px">SERIES 8</h6>
+                        <h3>A healthy leap ahead</h3>
+                        <div>
+                            <a href="#">Learn more &gt;</a>
+                            <a href="#">Buy &gt;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Apple Watch-->
+        </div>
+    </div>
+    <!--double box1-->
+    
+    <!--double box2------------------------------------------------------------------------->
+    <div id="content5" class="container-fluid">
+        <div class="row">
+            <!--applewatch----------------------------------------------------------------->
+            <div class="col-md-6">
+                <div class="container box-height">
+                    <div class="caption">
+                        <h2><i class="fa fa-apple"></i> WATCH</h2>
+                        <h6 style="color: red; font-size:20px">SE</h6>
+                        <h3>A great deal to love</h3>
+                        <div>
+                            <a href="#">Learn more &gt;</a>
+                            <a href="#">Buy &gt;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--applewatch-->
+
+            <!--Apple fitness+---------------------------------------------------------------->
+            <div class="col-md-6">
+                <div class="container box-height">
+                    <div class="caption">
+                        <h2><i class="fa fa-apple"></i> Fitness+</h2>
+                        <h3>Fitness for everyone.</h3>
+                        <h3>Now all you need is iPhone.</h3>
+                        <div>
+                            <a href="#">Learn more &gt;</a>
+                            <a href="#">Buy &gt;</a>
+                            <p style="text-align:center; margin-top: 480px;">Available later this fall for all iPhone users.¹</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Apple fitness+-->
+        </div>
+    </div>
+    <!--double box2-->
+
+    <!--double box3------------------------------------------------------------------------>
+    <div id="content6" class="container-fluid">
+        <div class="row">
+            <!--notebook----------------------------------------------------------------->
+            <div class="col-md-6">
+                <div class="container box-height">
+                    <div class="caption">
+                        <h6 style="color: #CA2166; font-size:20px">Offer ends 9.26</h6>
+                        <h2>Get supercharged for college.</h2>
+                        <h3>Last chance to get a gift card.²</h3>
+                        <div>
+                            <a href="#">Shop now &gt;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--notebook-->
+
+            <!--Apple card---------------------------------------------------------------->
+            <div class="col-md-6">
+                <div class="container box-height">
+                    <div class="caption">
+                        <h2><i class="fa fa-apple"></i> Card</h2>
+                        <h3>Get up to 3% Daily Cash back with every purchase.</h3>
+                        <div>
+                            <a href="#">Learn more &gt;</a>
+                            <a href="#">Apply now &gt;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Apple card-->
+        </div>
+    </div>
+    <!--double box3-->
+
+
+
+
+    <!--appleTV carousel------------------------------------------------------------------->
+    <div id="content7" class="container-fluid" >
+        <div class="slider" >
+            <div style="padding:10px; padding-right:0;" ><img src="img/TV1-1.jpg"></div>
+            <div style="padding:10px; padding-right:0;" ><img src="img/TV2-1.jpg"></div>
+            <div style="padding:10px; padding-right:0;" ><img src="img/TV3-1.jpg"></div>
+            <div style="padding:10px; padding-right:0;" ><img src="img/TV4-1.jpg"></div>
+            <div style="padding:10px; padding-right:0;" ><img src="img/TV5-1.jpg"></div>
+            <div style="padding:10px; padding-right:0;" ><img src="img/TV6-1.jpg"></div>
+            <div style="padding:10px; padding-right:0;" ><img src="img/TV7-1.jpg"></div>
+            <div style="padding:10px; padding-right:0;" ><img src="img/TV8-1.jpg"></div>
+            <div style="padding:10px; padding-right:0;" ><img src="img/TV9-1.jpg"></div>
+            <div style="padding:10px; padding-right:0;" ><img src="img/TV10-1.jpg"></div>
+        </div>
+    </div>
+    <!--appleTV carousel-->
+    <!--footer--------------------------------------------------------------------------->
+    <div id="footer1" class="container-fluid">
+        <div class="container">
+            <div class="ex">
+                1. iPhone 8 or later users may subscribe without an Apple Watch later this fall.
+            </div>
+            <div class="ex">
+                2. Qualified Purchasers receive an Apple Gift Card when they purchase an eligible Mac or iPad at a Qualifying Location. Only one Apple Gift Card per eligible Mac or iPad per Qualified Purchaser. Offer subject to availability. While supplies last. Qualified Purchasers shall receive a discount equal to the value of the Apple Gift Card off the price of the eligible Mac or iPad, but will be charged for all items in their cart, including the Apple Gift Card. Important notice regarding the checkout receipt and monthly statement for Apple Card Monthly Installment (ACMI) purchases with this promotion: Qualified Purchasers selecting ACMI (a 0% APR payment option) as payment type at checkout shall receive a discount equal to the value of the Apple Gift Card off the price of the eligible Mac or iPad. This will result in one ACMI installment plan over 12 months for the eligible iPad or Mac discounted by the instant credit, and a second ACMI installment plan over 12 months for the full price of the Apple Gift Card. The total combined amount charged over the two separate ACMI installment plans will reflect the original full retail price of the Eligible Product. Separately, Qualified Purchasers will receive and be charged for the Apple Gift Card in the amount of the applicable discount off the eligible Mac or iPad. ACMI is subject to credit approval and credit limit. Variable APRs for Apple Card other than ACMI range from 13.24% to 24.24% based on creditworthiness. Rates as of August 1, 2022. If you choose the pay‑in‑full or one‑time‑payment option for an ACMI‑eligible purchase instead of choosing ACMI as the payment option at checkout, that purchase will be subject to the variable APR assigned to your Apple Card. Taxes and shipping are not included in ACMI transactions and are subject to your standard purchase APR. See the Apple Card Customer Agreement at https://www.goldmansachs.com/terms-and-conditions/Apple-Card-Customer-Agreement.pdf for more information. ACMI is not available for purchases made online at the following special stores: Apple Employee Purchase Plan; participating corporate Employee Purchase Programs; Apple at Work for small businesses; Government, and Veterans and Military Purchase Programs, or on refurbished devices. Apple Card is issued by Goldman Sachs Bank USA, Salt Lake City Branch. Available for qualifying applicants in the United States. If you reside in the U.S. territories, please call Goldman Sachs at 877-255-5923 with questions about accessing this offer or applying for Apple Card. This offer cannot be combined with the Apple Employee Purchase Plan or business loyalty pricing. Availability of in‑store promotion offerings may be limited by Apple Store location closures as a result of COVID‑19. Additional restrictions apply. View full terms and conditions of offer here.
+            </div>
+            <div class="ex">
+                iPhone 14 Plus is subject to FCC rules as well as consumer protection, contractual, and other provisions of federal or state law. It cannot be sold or delivered until the FCC’s authorization process is complete.
+            </div>
+            <div class="ex">
+                A subscription is required for Apple Fitness+.
+            </div>
+            <div class="ex">    
+                Apple Fitness+ requires iOS 14.3 or later, iPadOS 14.3 or later, watchOS 7.2 or later, and tvOS 14.3 or later.
+            </div>
+            <div class="ex">   
+                To get the newest features, make sure your devices are running the latest software version.
+            </div>
+            <div class="ex">  
+                To access and use all the features of Apple Card, you must add Apple Card to Wallet on an iPhone or iPad with the latest version of iOS or iPadOS. Update to the latest version by going to Settings > General > Software Update. Tap Download and Install.
+            </div>
+            <div class="ex"> 
+                Available for qualifying applicants in the United States.
+            </div>
+            <div class="ex"> 
+                Apple Card is issued by Goldman Sachs Bank USA, Salt Lake City Branch.
+            </div>
+            <div class="ex"> 
+                Learn more about how Apple Card applications are evaluated at support.apple.com/kb/HT209218.
+            </div>
+            <hr>
+            <div class="footer-column">
+                <ul>
+                    <li><strong>Shop and Learn</strong></li>
+                    <li>Store</li>
+                    <li>Mac</li>
+                    <li>iPad</li>
+                    <li>iPhone</li>
+                    <li>Watch</li>
+                    <li>AirPods</li>
+                    <li>TV &amp; Home</li>
+                    <li>AirTag</li>
+                    <li>Accessories</li>
+                    <li>Gift Cards</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <ul>
+                    <li><strong>Services</strong></li>
+                    <li>Apple&nbsp;Music</li>
+                    <li>Apple&nbsp;TV+</li>
+                    <li>Apple&nbsp;Fitness+</li>
+                    <li>Apple&nbsp;News+</li>
+                    <li>Apple&nbsp;Arcade</li>
+                    <li>iCloud</li>
+                    <li>Apple&nbsp;One</li>
+                    <li>Apple&nbsp;Card</li>
+                    <li>Apple&nbsp;Books</li>
+                    <li>Apple Podcasts</li>
+                    <li>App&nbsp;Store</li>
+                </ul>
+                <ul>
+                    <li><strong>Account</strong></li>
+                    <li>Manage Your Apple&nbsp;ID</li>
+                    <li>Apple Store Account</li>
+                    <li>iCloud.com</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <ul>
+                    <li><strong>Apple Store</strong></li>
+                    <li>Find a Store</li>
+                    <li>Genius Bar</li>
+                    <li>Today at Apple</li>
+                    <li>Apple Camp</li>
+                    <li>Apple Store App</li>
+                    <li>Refurbished and Clearance</li>
+                    <li>Financing</li>
+                    <li>Apple&nbsp;Trade&nbsp;In</li>
+                    <li>Order Status</li>
+                    <li>Shopping Help</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <ul>
+                    <li><strong>For Business</strong></li>
+                    <li>Apple and Business</li>
+                    <li>Shop for Business</li>
+                </ul>
+                <ul>
+                    <li><strong>For Education</strong></li>
+                    <li>Apple and Education</li>
+                    <li>Shop for K-12</li>
+                    <li>Shop for College</li>
+                </ul>
+                <ul>
+                    <li><strong>For Healthcare</strong></li>
+                    <li>Apple in Healthcare</li>
+                    <li>Health on Apple&nbsp;Watch</li>
+                    <li>Health Records on iPhone</li>
+                </ul>
+                <ul>
+                    <li><strong>For Government</strong></li>
+                    <li>Shop for Government</li>
+                    <li>Shop for Veterans and Military</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <ul>
+                    <li><strong>Apple Values</strong></li>
+                    <li>Accessibility</li>
+                    <li>Education</li>
+                    <li>Environment</li>
+                    <li>Inclusion and Diversity</li>
+                    <li>Privacy</li>
+                    <li>Racial Equity and Justice</li>
+                    <li>Supplier Responsibility</li>
+                </ul>
+                <ul>
+                    <li><strong>About Apple</strong></li>
+                    <li>Newsroom</li>
+                    <li>Apple Leadership</li>
+                    <li>Career Opportunities</li>
+                    <li>Investors</li>
+                    <li>Ethics &amp; Compliance</li>
+                    <li>Events</li>
+                    <li>Contact Apple</li>
+                </ul>
+            </div>
+            <div style="margin-top: 300px; border-bottom: solid 1px; font-size: 13px;" >
+                <p>More ways to shop: Find an Apple Store or other retailer near you. Or call 1-800-MY-APPLE.</p>
+            </div>
+            <div id="bottom" style="margin-top: 5px; font-size: 13px;">
+            Copyright © 2022 Apple Inc. All rights reserved.
+				<a>Privacy Policy </a>
+				<a>Terms of Use </a>
+				<a>Sales and Refunds </a>
+				<a>Legal </a>
+				<a>Site Map </a>
+                <span style="margin-left:280px">United States</span> 
+			</div>
+        </div>
+    </div>
+
+    
+    <!--footer-->
+
+    <!--footer mobile------------------------------------------------------------------>
+    <div id="footer2" class="container">
+        <button type="button" id="btn1">Shop and learn</button>
+        <ul id="ul1" style="display: none;">
+            <li>Store</li>
+            <li>Mac</li>
+            <li>iPad</li>
+            <li>iPhone</li>
+            <li>Watch</li>
+            <li>AirPods</li>
+            <li>TV &amp; Home</li>
+            <li>AirTag</li>
+            <li>Accessories</li>
+            <li>Gift Cards</li>
+        </ul>
+        <hr>
+        <button type="button" id="btn2">Services</button>
+        <ul id="ul2" style="display: none;">
+            <li>Apple Music</li>
+            <li>Apple TV+</li>
+            <li>Apple Fitness+</li>
+            <li>Apple News+</li>
+            <li>Apple Arcade</li>
+            <li>iCloud</li>
+            <li>Apple One</li>
+            <li>Apple Card</li>
+            <li>Apple Books</li>
+            <li>Apple Podcasts</li>
+            <li>App Store</li>
+        </ul>
+        <hr>
+        <button type="button" id="btn3">Account</button>
+        <ul id="ul3" style="display: none;">
+            <li>Manage Your Apple&nbsp;ID</li>
+            <li>Apple Store Account</li>
+            <li>iCloud.com</li>
+        </ul>
+        <hr>
+        <button type="button" id="btn4">Apple Store</button>
+        <ul id="ul4" style="display: none;">
+            <li>Find a Store</li>
+            <li>Genius Bar</li>
+            <li>Today at Apple</li>
+            <li>Apple Camp</li>
+            <li>Apple Store App</li>
+            <li>Refurbished and Clearance</li>
+            <li>Financing</li>
+            <li>Apple&nbsp;Trade&nbsp;In</li>
+            <li>Order Status</li>
+            <li>Shopping Help</li>
+        </ul>
+        <hr>
+        <button type="button" id="btn5">For Business</button>
+        <ul id="ul5" style="display: none;">
+            <li>Apple and Business</li>
+            <li>Shop for Business</li>
+        </ul>
+        <hr>
+        <button type="button" id="btn6">For Education</button>
+        <ul id="ul6" style="display: none;">
+            <li>Apple and Education</li>
+            <li>Shop for K-12</li>
+            <li>Shop for College</li>
+        </ul>
+        <hr>
+        <button type="button" id="btn7">For Healthcare</button>
+        <ul id="ul7" style="display: none;">
+            <li>Apple in Healthcare</li>
+            <li>Health on Apple&nbsp;Watch</li>
+            <li>Health Records on iPhone</li>
+        </ul>
+        <hr>
+        <button type="button" id="btn8">For Government</button>
+        <ul id="ul8" style="display: none;">
+            <li>Shop for Government</li>
+            <li>Shop for Veterans and Military</li>
+        </ul>
+        <hr>
+        <button type="button" id="btn9">Apple Values</button>
+        <ul id="ul9" style="display: none;">
+            <li>Accessibility</li>
+            <li>Education</li>
+            <li>Environment</li>
+            <li>Inclusion and Diversity</li>
+            <li>Privacy</li>
+            <li>Racial Equity and Justice</li>
+            <li>Supplier Responsibility</li>
+        </ul>
+        <hr>
+        <button type="button" id="btn10">About Apple</button>
+        <ul id="ul10" style="display: none;">
+            <li>Newsroom</li>
+            <li>Apple Leadership</li>
+            <li>Career Opportunities</li>
+            <li>Investors</li>
+            <li>Ethics &amp; Compliance</li>
+            <li>Events</li>
+            <li>Contact Apple</li>
+        </ul>
+        <hr>
+    </div>
+</body>
+</html>
