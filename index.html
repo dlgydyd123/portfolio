@@ -81,14 +81,58 @@
     }
 
 
-    
-
-    
-
     .col-sm-4:hover{
       transition: 1s;
     }
+
+
+
+    .modal {
+        
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        display: none;
+
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal.show {
+        display: block;
+      }
+
+      .modal_body {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 1000px;
+        height: 600px;
+
+        padding: 40px;
+
+        text-align: center;
+
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+
+        transform: translateX(-50%) translateY(-50%);
+
+        color: black;
+      }
+
+      #close{
+        background-color: white;
+        float: right;
+      }
+
     </style>
+
+
     <script>
       $(document).ready(function(){
         // Add smooth scrolling to all links in navbar + footer link
@@ -114,7 +158,37 @@
             });
           } // End if
         });
-      })
+
+        const body = document.querySelector('body');
+        const modal = document.querySelector('.modal');
+        const student = document.querySelector('.student');
+        const close = document.querySelector('#close');
+
+        student.addEventListener('click', () => {
+          modal.classList.toggle('show');
+
+          if (modal.classList.contains('show')) {
+            body.style.overflow = 'hidden';
+          }
+        });
+
+        modal.addEventListener('click', (event) => {
+          if (event.target === modal) {
+            modal.classList.toggle('show');
+
+            if (!modal.classList.contains('show')) {
+              body.style.overflow = 'auto';
+            }
+          }
+        });
+        
+        close.addEventListener('click', ()=>{
+          modal.classList.toggle('show');
+          body.style.overflow = 'auto';
+        });
+
+      });
+
       </script>
   </head>
   <body>
@@ -154,20 +228,37 @@
   </div>
   
   <!-- Second Container -->
+
+  <div class="modal">
+    <div class="modal_body">Modal
+      <button class="btn" id="close" style="color: #5BC3D5;">X</button>
+        <div>
+          <iframe style="margin-top: 50px;" width="800" height="410" src="https://www.youtube.com/embed/kqh_N8kCBJU?controls=0&showinfo=0&rel=0&modestbranding=1&mute=1" frameborder="0"  allowfullscreen></iframe>
+        </div>
+    </div>
+  </div>
+
+
   <div id="projects" class="container-fluid  text-center">
     <h3 class="margin">Projects</h3><br>
     <div class="row">
       <div class="col-sm-4">
-        <img src="img/student.PNG" class="img-responsive margin"  alt="Image">
+        <img src="img/student.PNG" class="img-responsive margin student"  alt="Image">
       </div>
       <div class="col-sm-4">
+        <a href="https://dlgydyd123.github.io/portfolio/mcdonald/">
         <img src="img/mcdonald.PNG" class="img-responsive margin"  alt="Image">
+        </a>
       </div>
       <div class="col-sm-4">
+        <a href="https://dlgydyd123.github.io/portfolio/company/">
         <img src="img/TIS.PNG" class="img-responsive margin"  alt="Image">
+        </a>
       </div>
       <div class="col-sm-4">
-        <img src="img/yet.jpg" class="img-responsive margin"  alt="Image">
+        <a href="https://dlgydyd123.github.io/portfolio/apple/">
+        <img src="img/apple.png" class="img-responsive margin"  alt="Image">
+        </a>
       </div>
       <div class="col-sm-4">
         <img src="img/yet.jpg" class="img-responsive margin"  alt="Image">
