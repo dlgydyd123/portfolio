@@ -87,48 +87,48 @@
 
 
 
+
     .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+        }
         
-        top: 0;
-        left: 0;
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; 
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            height: 50%; 
+            text-align: center;
+            color: black;
+        }
+        
+        .close {
+            color: gray;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
-        width: 100%;
-        height: 100%;
+        .btn{
+          border: none;
+        }
 
-        display: none;
-
-        background-color: rgba(0, 0, 0, 0.4);
-      }
-
-      .modal.show {
-        display: block;
-      }
-
-      .modal_body {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-
-        width: 1000px;
-        height: 600px;
-
-        padding: 40px;
-
-        text-align: center;
-
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
-
-        transform: translateX(-50%) translateY(-50%);
-
-        color: black;
-      }
-
-      #close{
-        background-color: white;
-        float: right;
-      }
 
     </style>
 
@@ -159,33 +159,50 @@
           } // End if
         });
 
-        const body = document.querySelector('body');
-        const modal = document.querySelector('.modal');
-        const student = document.querySelector('.student');
-        const close = document.querySelector('#close');
 
-        student.addEventListener('click', () => {
-          modal.classList.toggle('show');
 
-          if (modal.classList.contains('show')) {
-            body.style.overflow = 'hidden';
-          }
-        });
 
-        modal.addEventListener('click', (event) => {
-          if (event.target === modal) {
-            modal.classList.toggle('show');
-
-            if (!modal.classList.contains('show')) {
-              body.style.overflow = 'auto';
-            }
-          }
-        });
+        // Modal을 가져옵니다.
+        var modals = document.getElementsByClassName("modal");
+        // Modal을 띄우는 클래스 이름을 가져옵니다.
+        var btns = document.getElementsByClassName("btn");
+        // Modal을 닫는 close 클래스를 가져옵니다.
+        var spanes = document.getElementsByClassName("close");
+        var funcs = [];
         
-        close.addEventListener('click', ()=>{
-          modal.classList.toggle('show');
-          body.style.overflow = 'auto';
-        });
+        // Modal을 띄우고 닫는 클릭 이벤트를 정의한 함수
+        function Modal(num) {
+          return function() {
+            // 해당 클래스의 내용을 클릭하면 Modal을 띄웁니다.
+            btns[num].onclick =  function() {
+                modals[num].style.display = "block";
+                console.log(num);
+            };
+        
+            // <span> 태그(X 버튼)를 클릭하면 Modal이 닫습니다.
+            spanes[num].onclick = function() {
+                modals[num].style.display = "none";
+            };
+          };
+        }
+        
+        // 원하는 Modal 수만큼 Modal 함수를 호출해서 funcs 함수에 정의합니다.
+        for(var i = 0; i < btns.length; i++) {
+          funcs[i] = Modal(i);
+        }
+        
+        // 원하는 Modal 수만큼 funcs 함수를 호출합니다.
+        for(var j = 0; j < btns.length; j++) {
+          funcs[j]();
+        }
+        
+        // Modal 영역 밖을 클릭하면 Modal을 닫습니다.
+        window.onclick = function(event) {
+          if (event.target.className == "modal") {
+              event.target.style.display = "none";
+          }
+        };
+                
 
       });
 
@@ -229,21 +246,33 @@
   
   <!-- Second Container -->
 
+ 
+  <!-- 첫 번째 Modal -->
   <div class="modal">
-    <div class="modal_body">Modal
-      <button class="btn" id="close" style="color: #5BC3D5;">X</button>
-        <div>
-          <iframe style="margin-top: 50px;" width="800" height="410" src="https://www.youtube.com/embed/kqh_N8kCBJU?controls=0&showinfo=0&rel=0&modestbranding=1&mute=1" frameborder="0"  allowfullscreen></iframe>
-        </div>
+
+    <!-- 첫 번째 Modal의 내용 -->
+    <div class="modal-content">학사관리프로그램
+      <span class="close">&times;</span>
+        <iframe  width="100%" height="90%" src="https://www.youtube.com/embed/kqh_N8kCBJU?controls=0&showinfo=0&rel=0&modestbranding=1&mute=1" frameborder="0"  allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- 두 번째 Modal -->
+  <div class="modal">
+
+    <!-- 두 번째 Modal의 내용 -->
+    <div class="modal-content">Triplan
+      <span class="close">&times;</span>
+        <iframe  width="100%"  height="90%" src="https://www.youtube.com/embed/ydF21Nnpn8c?controls=0&showinfo=0&rel=0&modestbranding=1&mute=1" frameborder="0"  allowfullscreen></iframe>
     </div>
   </div>
 
 
   <div id="projects" class="container-fluid  text-center">
-    <h3 class="margin">Projects</h3><br>
+    <h3 class="margin">Projects</h3>
     <div class="row">
       <div class="col-sm-4">
-        <img src="img/student.PNG" class="img-responsive margin student"  alt="Image">
+        <img src="img/student.PNG" class="img-responsive margin btn"  alt="Image">
       </div>
       <div class="col-sm-4">
         <a href="https://dlgydyd123.github.io/portfolio/mcdonald/">
@@ -261,9 +290,7 @@
         </a>
       </div>
       <div class="col-sm-4">
-        <a href="https://www.youtube.com/watch?v=ydF21Nnpn8c">
-        <img src="img/triplan.png" class="img-responsive margin"  alt="Image">
-        </a>  
+        <img src="img/triplan.png" class="img-responsive margin btn"  alt="Image">
       </div>
       <div class="col-sm-4">
         <img src="img/yet.jpg" class="img-responsive margin"  alt="Image">
