@@ -2,7 +2,7 @@
 
 ## 지도를 활용하여 여행계획을 생성, 저장하고 관리하는 프로그램입니다
 
-WEB Link : [www.ittrip.online](ittrip.online)
+WEB Link : [ittrip.online](ittrip.online)
 
 ### CoWorker
 - [gusdyd0102](https://github.com/gusdyd0102)
